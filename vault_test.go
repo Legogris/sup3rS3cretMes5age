@@ -56,7 +56,7 @@ func TestMain(m *testing.M) {
 
 
 func TestStore(t *testing.T) {
-	v := newVault(c.Address(), c.Token())
+	v := NewVault("cubbyhole/")
 
 	var storeParams =  []struct {
 		secret string
@@ -81,7 +81,7 @@ func TestStore(t *testing.T) {
 }
 
 func TestStoreAndGet(t *testing.T) {
-	v := NewVault(c.Address(), "cubbyhole/", c.Token())
+	v := NewVault("cubbyhole/")
 	secret := "my secret"
 	token, err := v.Store(secret, "24h")
 	if err != nil {
@@ -99,7 +99,7 @@ func TestStoreAndGet(t *testing.T) {
 }
 
 func TestMsgCanOnlyBeAccessedOnce(t *testing.T) {
-	v := NewVault(c.Address(), "cubbyhole/", c.Token())
+	v := NewVault("cubbyhole/")
 	secret := "my secret"
 	token, err := v.Store(secret, "24h")
 	if err != nil {
