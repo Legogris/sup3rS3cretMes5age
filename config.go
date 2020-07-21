@@ -16,9 +16,6 @@ func getConfig() conf {
 	c.Domain = os.Getenv("DOMAIN")
 	c.Local = false
 	c.VaultPrefix = os.Getenv("VAULT_PREFIX")
-	if c.Domain == "" {
-		c.Domain = "localhost"
-	}
 	if c.Domain == "localhost" {
 		c.Local = true
 	}
